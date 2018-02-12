@@ -1,4 +1,6 @@
 import React from 'react'
+import { StyleSheet, css } from 'aphrodite'
+
 import IconButton from '../template/iconButton'
 
 export default props => {
@@ -10,15 +12,15 @@ export default props => {
         <td>{todo.description}</td>
         <td>
           <IconButton style='success' icon='check' hide={todo.done} onClick={() => props.handleMarkAsDone(todo)} />
-          <IconButton style='warning' icon='undo' onClick={() => props.handleMarkAsPending(todo)} />
-          <IconButton style='danger' icon='trash-o' onClick={() => props.handleRemove(todo)} />
+          <IconButton style={`warning ${css(styles.buttonToLeft)}`} icon='undo' onClick={() => props.handleMarkAsPending(todo)} />
+          <IconButton style={`danger ${css(styles.buttonToLeft)}`} icon='trash-o' onClick={() => props.handleRemove(todo)} />
         </td>
       </tr>
     ))
   }
 
   return (
-    <table className='table'>
+    <table className={`table ${css(styles.table)}`}>
       <thead>
         <tr>
           <th>Descrição</th>
@@ -31,3 +33,13 @@ export default props => {
     </table>
   )
 }
+
+const styles = StyleSheet.create({
+  table: {
+    marginTop: '100px'
+  },
+
+  buttonToLeft: {
+    marginLeft: '10px'
+  }
+})
