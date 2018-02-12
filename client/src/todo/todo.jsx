@@ -14,8 +14,10 @@ export default class Todo extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
+    this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
+    this.handleMarkAsPending = this.handleMarkAsPending.bind(this)
     this.handleRemove = this.handleRemove.bind(this)
-
+    
     this.refresh()
   }
 
@@ -31,12 +33,12 @@ export default class Todo extends Component {
 
   handleMarkAsDone(todo) {
     axios.put(`${URL}/${todo._id}`, {...todo, done: true})
-         .then(resp => refresh())
+         .then(resp => this.refresh())
   }
 
   handleMarkAsPending(todo) {
     axios.put(`${URL}/${todo._id}`, { ...todo, done: false })
-         .then(resp => refresh())
+         .then(resp => this.refresh())
   }
 
   handleRemove(todo) {
