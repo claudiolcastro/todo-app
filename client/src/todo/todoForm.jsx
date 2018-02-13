@@ -20,6 +20,7 @@ export default props => {
       <Grid cols='12 3 2'>
         <IconButton style='primary' icon='plus' onClick={props.handleAdd}/>
         <IconButton style={`info ${css(styles.buttonToLeft)}`} icon='search' onClick={props.handleSearch} />
+        <IconButton style={`default ${css(styles.buttonToLeft)}`} icon='close' onClick={props.handleClear} />
       </Grid>
     </div>
   )

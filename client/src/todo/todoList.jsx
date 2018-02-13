@@ -9,7 +9,7 @@ export default props => {
     const list = props.list || []
     return list.map(todo => (
       <tr key={todo._id}>
-        <td>{todo.description}</td>
+        <td className={ todo.done ? css(styles.descriptionDone) : '' }>{todo.description}</td>
         <td>
           <IconButton style='success' icon='check' hide={todo.done} onClick={() => props.handleMarkAsDone(todo)} />
           <IconButton hide={!todo.done} style={`warning ${css(styles.buttonToLeft)}`} icon='undo' onClick={() => props.handleMarkAsPending(todo)} />
@@ -24,7 +24,7 @@ export default props => {
       <thead>
         <tr>
           <th>Descrição</th>
-          <th>Ações</th>
+          <th className={css(styles.actionsTh)} >Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -41,5 +41,14 @@ const styles = StyleSheet.create({
 
   buttonToLeft: {
     marginLeft: '10px'
+  },
+
+  descriptionDone: {
+    textDecoration: 'line-through',
+    color: '#777'
+  },
+
+  actionsTh: {
+    width: '120px'
   }
 })
