@@ -1,4 +1,5 @@
 import React from 'react'
+import { StyleSheet, css } from 'aphrodite'
 
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
@@ -18,7 +19,14 @@ export default props => {
 
       <Grid cols='12 3 2'>
         <IconButton style='primary' icon='plus' onClick={props.handleAdd}/>
+        <IconButton style={`info ${css(styles.buttonToLeft)}`} icon='search' onClick={props.handleSearch} />
       </Grid>
     </div>
   )
 }
+
+const styles = StyleSheet.create({
+  buttonToLeft: {
+    marginLeft: '10px'
+  }
+})

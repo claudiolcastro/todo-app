@@ -12,7 +12,7 @@ export default props => {
         <td>{todo.description}</td>
         <td>
           <IconButton style='success' icon='check' hide={todo.done} onClick={() => props.handleMarkAsDone(todo)} />
-          <IconButton style={`warning ${css(styles.buttonToLeft)}`} icon='undo' onClick={() => props.handleMarkAsPending(todo)} />
+          <IconButton hide={!todo.done} style={`warning ${css(styles.buttonToLeft)}`} icon='undo' onClick={() => props.handleMarkAsPending(todo)} />
           <IconButton style={`danger ${css(styles.buttonToLeft)}`} icon='trash-o' onClick={() => props.handleRemove(todo)} />
         </td>
       </tr>
