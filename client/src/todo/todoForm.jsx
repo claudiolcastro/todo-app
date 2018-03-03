@@ -1,9 +1,11 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
+import { changeDescription } from './todoActions'
 
 const TodoForm = props => {
   return (
@@ -14,7 +16,7 @@ const TodoForm = props => {
           className='form-control'
           placeholder='Adicione uma tarefa'
           value={props.description}
-          onChange={props.handleChange}
+          onChange={props.changeDescription}
         />
       </Grid>
 
@@ -34,5 +36,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({description: state.todo.description})
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ changeDescription }, dispatch)
 
-export default connect(mapStateToProps)(TodoForm)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)
