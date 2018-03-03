@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
+import { connect } from 'react-redux';
 
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
 
-export default props => {
+const TodoForm = props => {
   return (
     <div role='form' className='todoForm'>
       <Grid cols='12 9 10'>
@@ -31,3 +32,7 @@ const styles = StyleSheet.create({
     marginLeft: '10px'
   }
 })
+
+const mapStateToProps = state => ({description: state.todo.description})
+
+export default connect(mapStateToProps)(TodoForm)

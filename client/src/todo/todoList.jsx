@@ -1,9 +1,10 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
+import { connect } from 'react-redux';
 
 import IconButton from '../template/iconButton'
 
-export default props => {
+const TodoList = props => {
 
   const renderRows = () => {
     const list = props.list || []
@@ -52,3 +53,7 @@ const styles = StyleSheet.create({
     width: '120px'
   }
 })
+
+const mapStateToProps = state => ({list: state.todo.list})
+
+export default connect(mapStateToProps)(TodoList)
