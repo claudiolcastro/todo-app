@@ -33,6 +33,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "aphrodite": "^1.2.5"
+    "aphrodite": "^1.2.5",
+    "redux-promise": "^0.5.3"
   }
 }
