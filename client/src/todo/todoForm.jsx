@@ -40,7 +40,7 @@ class TodoForm extends Component {
           <IconButton
             style={`info ${css(styles.buttonToLeft)}` }
             icon='search'
-            onClick={ () => search() }
+            onClick={ search }
           />
           <IconButton
             style={ `default ${css(styles.buttonToLeft)}` }
